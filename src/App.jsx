@@ -16,7 +16,7 @@ export default function App() {
       case "Home":     return <Home setActivePage={setActivePage} />;
       case "Skills":   return <Skills />;
       case "Projects":   return <Projects />;
-      // case "Research": return <Research />;
+      case "Research": return <Research />;
       case "Contact":    return <Contact />;
       default:         return <Home />;
     }
