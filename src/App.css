@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --bg:       #050709;
+  --surface:  #0b0e14;
+  --accent:   #00e5ff;
+  --accent2:  #ff2d6b;
+  --green:    #39ff14;
+  --text:     #dce8f0;
+  --muted:    #4a5a6a;
+  --border:   rgba(0, 229, 255, 0.08);
+
+  --mono:    'Share Tech Mono', monospace;
+  --display: 'Bebas Neue', cursive;
+  --body:    'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  overflow: hidden;
+}
+
+/* scanline overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 229, 255, 0.012) 2px,
+    rgba(0, 229, 255, 0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* global animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(57, 255, 20, 0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(57, 255, 20, 0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translate(0, 0);     opacity: 1;   }
+  50%       { transform: rotate(45deg) translate(3px, 3px); opacity: 0.4; }
+}
